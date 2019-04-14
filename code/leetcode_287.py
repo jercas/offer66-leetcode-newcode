@@ -29,7 +29,7 @@ class Solution:
             if val in hashT:
                 return val
             hashT[val] = ind
-        return False
+        return -1
 
 if __name__ == "__main__":
     Q = [1,3,4,2,2]

@@ -10,7 +10,7 @@ Created on Thu Apr 11 16:43:36 2019
     不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
 """
 class Solution:
-    def removeDuplicates(self, nums):
+    def removeDuplicates1(self, nums: 'List[int]') -> 'int':
         """
         :type nums: List[int]
         :rtype: int
@@ -25,18 +25,40 @@ class Solution:
             nums[i] = result[i]
         return len(result)
     
+    def removeDuplicates2(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        i = 0 
+        for n in nums:
+            if i<1 or n != nums[i-1]:
+                nums[i] = n
+                i += 1
+        return i
+    
 if __name__ == "__main__":
     Q1, Q2 = [1,1,2], [0,0,1,1,1,2,2,3,3,4]
     A11, A12 = 2,5
     A21, A22 = [1, 2], [0,1,2,3,4]
     
     solution = Solution()
-    if A11 == solution.removeDuplicates(Q1):
+    if A11 == solution.removeDuplicates1(Q1):
         print('equal')
         for i in range(A11):
             Q1[i] == A21[i]
             print('match')
-    if A12 == solution.removeDuplicates(Q2):
+    if A12 == solution.removeDuplicates1(Q2):
+        print('equal')
+        for i in range(A12):
+            Q2[i] == A22[i]
+            print('match')
+    if A11 == solution.removeDuplicates2(Q1):
+        print('equal')
+        for i in range(A11):
+            Q1[i] == A21[i]
+            print('match')
+    if A12 == solution.removeDuplicates2(Q2):
         print('equal')
         for i in range(A12):
             Q2[i] == A22[i]
