@@ -6,7 +6,7 @@ Created on Mon Apr 15 21:49:37 2019
 """
 """
     leetcode-53: 最大子序和 EASY
-    '数组' '动态规划' '动态规划'
+    '数组' '动态规划' '分治算法'
     给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），
     返回其最大和。
 """ 
@@ -28,7 +28,8 @@ class Solution:
     def maxSubArray3(self, nums: 'List[int]') -> int:
         if len(nums) <=0 :
             return 0
-        # 动态规划, 在自身位置以累积和替代
+        # 动态规划, 在自身位置以累积和替代，原数组上操作（对i，当i-1为正值时，nums[i]+nums[i-1]累积和必然上升，
+        #                                           此时以该累积和替换nums[i]，套用动态规划思想 -- 记下历史记录）
         for i in range(1, len(nums)):
             nums[i]= nums[i] + max(nums[i-1], 0)
         return max(nums)
@@ -36,12 +37,12 @@ class Solution:
     def maxSubArray2(self, nums: 'List[int]') -> int:
         if len(nums) <=0 :
             return 0
-        # 动态规划
+        # 动态规划，以变量记录累积和变化 和 最大值
         maxV = nums[0]
         benefited = 0
         for num in nums:
-            benefited = max(num, num + benefited)
-            maxV = max(maxV, benefited)
+            benefited = max(num, num + benefited) # 记录累积和，当i + i-1 累积和超过 i 本身时，为正向累积和-》记录下来（-1+4=3>-1 正向累积记录， -2+4=2<4 负向累积不记录）
+            maxV = max(maxV, benefited)           # 新累积和 超过 当前最大值时， 替换
         return maxV
     
     
