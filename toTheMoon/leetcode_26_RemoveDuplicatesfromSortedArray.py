@@ -23,7 +23,7 @@ class Solution:
         result.sort()
 
         for i, v in enumerate(result):
-            nums[i] = result[i]
+            nums[i] = v
         return len(result)
     
     def removeDuplicates2(self, nums):

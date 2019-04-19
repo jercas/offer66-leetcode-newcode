@@ -18,8 +18,6 @@ Created on Thu Apr 18 20:32:31 2019
 			其中k为wordDict中一个单词的长度，所以在这一块，可以遍历所有的单词来求。
 		（3）可以先求出wordDict中每个长度，并且给它排序，方便后面的计算。
 """
-
-
 class Solution(object):
 	def wordBreak1(self, s, wordDict):
 		"""
