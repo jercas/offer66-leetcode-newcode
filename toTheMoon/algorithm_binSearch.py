@@ -2,7 +2,7 @@
 """
 Created on Thu Apr 11 21:31:08 2019
 
-@author: jerca
+@author: jercas
 """
 """基础查找算法：二分查找"""
 def bin_search(data_list, val):    
