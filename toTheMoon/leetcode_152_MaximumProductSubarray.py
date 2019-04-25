@@ -42,5 +42,5 @@ if __name__ == "__main__":
 	for i in range(3):
 		if A[i] == solution.maxProduct2(Q[i]) and A[i] == solution.maxProduct1(Q[i]):
 			Q = [[2, 3, -2, 4], [-2, 0, -1], [2, -5, -2, -4, 3]]
-			print('\n', Q[i], "-->", A[i])
-			print('AC')
+			print(Q[i], "-->", A[i])
+			print('AC\n')
