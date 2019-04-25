@@ -18,6 +18,7 @@ def insert_sort(list):
 	return list
 
 
-list = [3, 4, 2, 8, 9, 5, 1]
-print("排序前序列 -> ", list)
-print("排序后序列 -> ", insert_sort(list))
+list1 = [3, 4, 2, 8, 9, 5, 1]
+list2 = [1, 2, 3, 2, 5, 6]
+print("排序前序列 -> ", list1, list2)
+print("排序后序列 -> ", insert_sort(list1), insert_sort(list2))

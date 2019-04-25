@@ -12,7 +12,7 @@ Created on Sun Apr 14 16:02:55 2019
     注意：给定 n 是一个正整数。
 """
 class Solution:
-    def climbStairs(self, n: int) -> int:
+    def climbStairs1(self, n: int) -> int:
         ways = [1, 1]
         if n < 2:
             return ways[n]
@@ -22,11 +22,22 @@ class Solution:
                 ways[0] = ways[1]
                 ways[1] = tmp
             return ways[1]
+
+    def climbStairs2(self, n: int) -> int:
+        ways = [1, 1]
+        for i in range(1, n):
+            ways.append(ways[i] + ways[i-1])
+        """
+        for i in range(2, n+1):
+            ways.append(ways[-2] + ways[-1])
+        """
+        return ways[-1]
         
 
 if __name__ == "__main__":
-    Q1,Q2 = 2, 4
-    A1, A2 = 2, 5
+    Q = [2, 4]
+    A = [2, 5]
     solution = Solution()
-    if solution.climbStairs(Q1) == A1 and solution.climbStairs(Q2) == A2:
-        print('AC')
+    for i in range(2):
+        if solution.climbStairs1(Q[i]) == A[i] and solution.climbStairs2(Q[i]) == A[i]:
+            print('AC')
