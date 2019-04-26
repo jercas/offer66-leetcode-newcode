@@ -8,12 +8,12 @@ Created on Wed Apr 24 22:36:48 2019
 def insert_sort(list):
 	n = len(list)
 	for i in range(1, n):
-		key = list[i]
+		tmp = list[i]
 		prev = i - 1
 		while prev >= 0:
-			if list[prev] > key:
+			if list[prev] > tmp:
 				list[prev + 1] = list[prev]
-				list[prev] = key
+				list[prev] = tmp
 			prev -= 1
 	return list
 
