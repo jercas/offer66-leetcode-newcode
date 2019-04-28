@@ -7,6 +7,7 @@ Created on Wed Apr 24 22:36:48 2019
 """基础排序算法：插入排序"""
 def insert_sort(list):
 	n = len(list)
+	"""
 	for i in range(1, n):
 		tmp = list[i]
 		prev = i - 1
@@ -15,6 +16,11 @@ def insert_sort(list):
 				list[prev + 1] = list[prev]
 				list[prev] = tmp
 			prev -= 1
+	"""
+	for i in range(1, n):
+		while i>0 and list[i-1] > list[i]:
+			list[i], list[i-1] = list[i-1], list[i]
+			i -= 1
 	return list
 
 
