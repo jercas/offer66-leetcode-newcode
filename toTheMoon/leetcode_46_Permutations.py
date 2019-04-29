@@ -42,4 +42,5 @@ if __name__ == "__main__":
          [3,2,1]]
     solution = Solution()
     if solution.permute(Q) == A:
+            print("the all permutation of {0} is --> {1}".format(Q, A))
             print("AC")
