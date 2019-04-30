@@ -24,12 +24,12 @@ class Solution:
         while i>=0 and j>=0:
             if nums2[j] > nums1[i]:
                 nums1[length] = nums2[j]
-                length -=1
                 j -=1
             else:
                 nums1[length] = nums1[i]
-                length -=1
                 i -=1
+            length -=1
+            
         while j >= 0:
             nums1[length] = nums2[j]
             length -=1
@@ -42,5 +42,5 @@ if __name__ == "__main__":
     solution = Solution()
     solution.merge(Q1[0], Q2[0], Q1[1], Q2[1])
     if Q1[0] == A:
-            print("merge sorted list [1, 2, 3] and [2, 5, 6] --> {0}".format(A))
+            print("merge sorted list [1, 2, 3] and [2, 5, 6] --> {0}".format(Q, A))
             print("AC")
