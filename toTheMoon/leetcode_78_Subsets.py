@@ -23,7 +23,7 @@ class Solution(object):
 
 		ans = self.subsets(nums[:-1])
 		ans += [a + [nums[-1]] for a in ans]
-		print(ans, '\n')
+		#print(ans, '\n')
 		return ans
 
 
@@ -35,4 +35,4 @@ if __name__ == "__main__":
 	for i in A:
 		if i in ans:
 			print(i)
-			print('AC')
+	print('AC')
