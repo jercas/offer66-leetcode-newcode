@@ -21,6 +21,7 @@ class Solution:
         Do not return anything, modify nums1 in-place instead.
         """
         i , j, length = m-1, n-1, m+n-1
+
         while i>=0 and j>=0:
             if nums2[j] > nums1[i]:
                 nums1[length] = nums2[j]

@@ -30,6 +30,7 @@ class Solution(object):
 		"""
 		node = ListNode(None)
 		res = node
+
 		while l1 != None and l2 != None:
 			if l1.val > l2.val:
 				node.next = l2
