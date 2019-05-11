@@ -37,6 +37,7 @@ class Solution:
             else:
                 r = m
         pos = l
+        
         res = self.BinarySearch(target, nums[:pos])
         if res == -1:
             res = self.BinarySearch(target, nums[pos:])

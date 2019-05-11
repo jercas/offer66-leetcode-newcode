@@ -21,10 +21,10 @@ class Solution(object):
 		if len(nums) == 0:
 			return [[]]
 
-		ans = self.subsets(nums[:-1])
-		ans += [a + [nums[-1]] for a in ans]
+		res = self.subsets(nums[:-1])
+		res += [a + [nums[-1]] for a in res]
 		#print(ans, '\n')
-		return ans
+		return res
 
 
 if __name__ == "__main__":
