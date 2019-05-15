@@ -76,9 +76,10 @@ class Solution(object):
 			# 同理判断长度，为1时说明未含有重复，为公共前缀
 			if len(set(cur)) == 1:
 				res += cur[0]
-			# 有不用前缀字符时，直接跳出
+			# 有不用前缀字符时，直接跳出，或返回任意字符串的公共前缀
 			else:
-				break
+				return strs[0][:i]
+				# break
 		return res
 
 
