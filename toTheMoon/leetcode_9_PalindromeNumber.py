@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Apr 17 22:50:20 2019
+Created on Tue May 14 21:30:27 2019
 
 @author: jercas
 """
@@ -56,3 +56,13 @@ class Solution(object):
 		# 当输入数为奇数时，需要再通过次整除10取出中间数
 		# 如12321，循环结束时 x=12 而 reverted = 123, 需要将reverted // 10 = 12，再行判断
 		return x == reverted or x == reverted // 10
+
+
+if __name__ == "__main__":
+	Q = [121, -121, 10, 0]
+	A = [True, False, False, True]
+	solution = Solution()
+	for i in range(4):
+		if solution.isPalindrome1(Q[i]) == A[i] and solution.isPalindrome2(Q[i]) == A[i]:
+			print("Num {0} is a {1} palindrome".format(Q[i], A[i]))
+	print("AC")
