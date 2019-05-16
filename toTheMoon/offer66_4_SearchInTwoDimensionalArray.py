@@ -22,7 +22,7 @@ class Solution:
 		while row < n and col >= 0:
 			if array[row][col] == target:
 				return True
-			elif array[row][ col] > target:
+			elif array[row][col] > target:
 				col -= 1
 			else:
 				row += 1
