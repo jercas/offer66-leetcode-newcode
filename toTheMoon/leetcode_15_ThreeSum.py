@@ -5,7 +5,7 @@ Created on Thu May 16 15:37:21 2019
 @author: jercas
 """
 """
-	leetcode-14: 最长公共前缀 EASY
+	leetcode-14: 最长公共前缀 MEDIUM
 	'数组' '双指针'
 	给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
 	注意：答案中不可以包含重复的三元组。
@@ -64,7 +64,7 @@ class Solution(object):
 		:type nums: List[int]
 		:rtype: List[List[int]]
 		时间复杂度：O(n)，一次遍历得出结果，524ms beaten 92.02%
-		空间复杂度：O(1)，未使用额外空间， 148MB beaten 83.17%
+		空间复杂度：O(1)，未使用额外空间， 14.8MB beaten 83.17%
 		"""
 		nums.sort()
 		n = len(nums)
