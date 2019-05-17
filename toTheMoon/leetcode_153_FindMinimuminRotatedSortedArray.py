@@ -12,9 +12,17 @@ Created on Mon Apr 29 17:22:37 2019
     请找出其中最小的元素。
     你可以假设数组中不存在重复元素。
 """
+"""
+	Thinking:
+		0.本题与No.33中做法一致，属于33题中寻找旋转点的操作，直接用变形的二分查找定位旋转点即可
+"""
 class Solution:
     def findMin(self, nums: 'List[int]') -> int:
-        #return min(nums)
+        # 排除边界状态
+        if not nums:
+            return -1
+
+        # 变形二分查找旋转点
         l = 0
         r = len(nums) - 1
 
