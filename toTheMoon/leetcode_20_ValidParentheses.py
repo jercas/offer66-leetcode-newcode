@@ -22,6 +22,8 @@ class Solution(object):
 		"""
 		:type s: s
 		:rtype: bool
+		时间复杂度：O(n), 一次遍历, 28ms beaten 98.17%
+		空间复杂度：O(s), 使用了栈结构, 11.8MB beaten 30.55%
 		"""
 		stack = []
 		mapping = {')':'(', ']':'[', '}':'{'}
