@@ -13,29 +13,19 @@ Created on Sun Apr 14 15:14:58 2019
 """
 import sys
 class Solution:
-	def maxProfit1(self, prices: 'List[int]') -> int:
-		n = len(prices)
-		if n <= 0:
-			return 0
-
-		profit = 0
-		minPrice = prices[0]
-		for i in range(1, n):
-			profit = max(profit, prices[i] - minPrice)
-			if prices[i] < minPrice:
-				minPrice = prices[i]
-		return profit
-
-	def maxProfit2(self, prices):
+	def maxProfit(self, prices):
 		"""
 		:type prices: List[int]
 		:rtype: int
 		"""
+		if len(prices) <= 0:
+			return 0
+
 		minPrice = sys.maxsize
 		profit = 0
 		for price in prices:
-			profit = max(profit, price - minPrice)
 			minPrice = min(minPrice, price)
+			profit = max(profit, price - minPrice)
 		return profit
 
 
@@ -44,6 +34,6 @@ if __name__ == "__main__":
 	A = [5, 0]
 	solution = Solution()
 	for i in range(2):
-		if solution.maxProfit1(Q[i]) == A[i] and solution.maxProfit2(Q[i]) == A[i]:
+		if solution.maxProfit(Q[i]) == A[i]:
 			print("{0} ==> Max Profit:{1}".format(Q[i],A[i]))
 			print("AC")
