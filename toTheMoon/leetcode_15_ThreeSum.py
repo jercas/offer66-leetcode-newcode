@@ -5,7 +5,7 @@ Created on Thu May 16 15:37:21 2019
 @author: jercas
 """
 """
-	leetcode-14: 最长公共前缀 MEDIUM
+	leetcode-15: 三数之和 MEDIUM
 	'数组' '双指针'
 	给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
 	注意：答案中不可以包含重复的三元组。
@@ -70,10 +70,13 @@ class Solution(object):
 		n = len(nums)
 		res = []
 		for i in range(n - 2):
+			# 数组已经排序，如果定位数字自身已经大于0，且其后的都大于0，则在此范围内任何组合均大于0，直接跳出循环
 			if nums[i] > 0:
 				break
+			# 定位时，因为已经排序完毕，若出现两个相同数的情况，其结果也必定一致，直接跳出该次循环
 			if i > 0 and nums[i] == nums[i - 1]:
 				continue
+			# 定位一个数，对另外两个数采用双向查找
 			l, r = i + 1, n - 1
 			while l < r:
 				cur = nums[l] + nums[r] + nums[i]
