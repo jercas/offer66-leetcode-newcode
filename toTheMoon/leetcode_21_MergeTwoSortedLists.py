@@ -13,6 +13,12 @@ Created on Thu Apr 25 17:37:55 2019
 		输入：1->2->4, 1->3->4
 		输出：1->1->2->3->4->4
 """
+"""
+	Thinking:
+		1.迭代法：不要求空间复杂度情况下，使用额外空链表进行排序，因为均为有序链表故双指针分别对比判断大小，链入排序链表即可，当有一方为空时，另一方整体链入
+		排序链表中（均为有序链表，则剩下来的链表定为最后末尾的大数数列），返回排序链表即可，
+		2.递归法：不使用额外空间，在原链表基础上进行链接排序。
+"""
 
 
 # Definition for singly-linked list.
@@ -22,11 +28,13 @@ class ListNode(object):
 		self.next = None
 
 class Solution(object):
-	def mergeTwoLists(self, l1, l2):
+	def mergeTwoLists1(self, l1, l2):
 		"""
 		:type l1: ListNode
 		:type l2: ListNode
 		:rtype: ListNode
+		时间复杂度: O(m+n)，遍历一次即可，32ms beaten 94.53%
+		空间复杂度: O(m+n), 采用额外链表合并排序，11.8MB beaten 32.12%
 		"""
 		node = ListNode(None)
 		res = node
@@ -45,3 +53,19 @@ class Solution(object):
 			node.next = l1
 		return res.next
 
+	def mergeTwoLists2(self, l1: ListNode, l2: ListNode) -> ListNode:
+		"""
+		:type l1: ListNode
+		:type l2: ListNode
+		:rtype: ListNode
+		时间复杂度: O(m+n)，遍历一次即可，20ms beaten 99.76%
+		空间复杂度: O(m+n), 采用额外链表合并排序，11.8MB beaten 32.12%
+		"""
+		if not l1: return l2
+		if not l2: return l1
+		if l1.val < l2.val:
+			l1.next = self.mergeTwoLists2(l1.next, l2)
+			return l1
+		else:
+			l2.next = self.mergeTwoLists2(l1, l2.next)
+			return l2

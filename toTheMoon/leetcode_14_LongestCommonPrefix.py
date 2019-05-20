@@ -70,6 +70,7 @@ class Solution(object):
 			return ''
 		length = [len(s) for s in strs]
 		res = ''
+
 		for i in range(min(length)):
 			# 分别取出strs中每个str的各个位置字符s组成数组
 			cur = [s[i] for s in strs]
