@@ -44,8 +44,8 @@ class Solution:
 		:param nums:
 		:param target:
 		:return:
-		时间复杂度：O(log2n), 二分查找时间复杂度，32ms beaten 99.54%
-		空间复杂度：O(1), 未使用额外空间，11.9MB beaten 12.33%
+		时间复杂度：O(log2n), 二分查找时间复杂度，28ms beaten 99.58%
+		空间复杂度：O(1), 未使用额外空间，11.9MB beaten 18.33%
 		"""
 		# 排除边界状态
 		if not nums:
