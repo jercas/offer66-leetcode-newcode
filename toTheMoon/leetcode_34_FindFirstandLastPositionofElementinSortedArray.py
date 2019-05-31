@@ -36,11 +36,12 @@ class Solution(object):
 		空间复杂度：O(1)，未使用额外空间，13MB beaten 38.34%
 		"""
 		res = [-1, -1]
+		n = len(nums) - 1
 		if not nums:
 			return res
 
 		l = 0
-		r = len(nums)
+		r = n
 
 		while l < r:
 			m = (l + r) // 2
@@ -49,9 +50,9 @@ class Solution(object):
 			else:
 				r = m
 
-		if l < len(nums) and nums[l] == target:
+		if l <= n and nums[l] == target:
 			res[0] = l
-			while l < len(nums) and nums[l] == target:
+			while l <= n and nums[l] == target:
 				l += 1
 			res[1] = l - 1
 		return res
@@ -62,15 +63,16 @@ class Solution(object):
 		:type nums: List[int]
 		:type target: int
 		:rtype: List[int]
-		时间复杂度：O(log2n)，二分查找变体，88ms beaten 99.37%
+		时间复杂度：O(log2n)，标准二分查找，88ms beaten 99.37%
 		空间复杂度：O(1)，未使用额外空间，12.9MB beaten 41.11%
 		"""
 		res = [-1, -1]
+		n = len(nums) - 1
 		if not nums:
 			return res
 
 		l = 0
-		r = len(nums) - 1
+		r = n
 		m = 0
 
 		while l <= r:
@@ -86,7 +88,7 @@ class Solution(object):
 			i, j = m, m
 			while i > 0 and nums[i - 1] == target:
 				i -= 1
-			while j < len(nums)-1 and nums[j + 1] == target:
+			while j < n and nums[j + 1] == target:
 				j += 1
 			res = [i, j]
 		return res

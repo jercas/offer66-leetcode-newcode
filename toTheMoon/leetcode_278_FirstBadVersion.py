@@ -48,7 +48,7 @@ class Solution(object):
 
 
 	def firstBadVersion2(self, n):
-		l = 0
+		l = 1
 		r = n
 		while l < r:
 			m = (l + r) // 2
