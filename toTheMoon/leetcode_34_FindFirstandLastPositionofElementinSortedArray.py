@@ -36,12 +36,11 @@ class Solution(object):
 		空间复杂度：O(1)，未使用额外空间，13MB beaten 38.34%
 		"""
 		res = [-1, -1]
-		n = len(nums)
 		if not nums:
 			return res
 
 		l = 0
-		r = n
+		r = len(nums)
 
 		while l < r:
 			m = (l + r) // 2
@@ -50,7 +49,7 @@ class Solution(object):
 			else:
 				r = m
 
-		if l < n and nums[l] == target:
+		if l < len(nums) and nums[l] == target:
 			res[0] = l
 			while l < len(nums) and nums[l] == target:
 				l += 1
@@ -67,12 +66,11 @@ class Solution(object):
 		空间复杂度：O(1)，未使用额外空间，12.9MB beaten 41.11%
 		"""
 		res = [-1, -1]
-		n = len(nums) - 1
 		if not nums:
 			return res
 
 		l = 0
-		r = n
+		r = len(nums) - 1
 		m = 0
 
 		while l <= r:
@@ -88,7 +86,7 @@ class Solution(object):
 			i, j = m, m
 			while i > 0 and nums[i - 1] == target:
 				i -= 1
-			while j < n and nums[j + 1] == target:
+			while j < len(nums)-1 and nums[j + 1] == target:
 				j += 1
 			res = [i, j]
 		return res
