@@ -42,7 +42,6 @@ class Solution(object):
 
 		l = 0
 		r = n
-
 		while l < r:
 			m = (l + r) // 2
 			if nums[m] < target:
@@ -74,7 +73,6 @@ class Solution(object):
 		l = 0
 		r = n
 		m = 0
-
 		while l <= r:
 			m = (l + r) // 2
 			if nums[m] == target:
