@@ -49,6 +49,7 @@ class Solution(object):
 				l = m + 1
 			else:
 				r = m
+
 		if l < n and nums[l] == target:
 			res[0] = l
 			while l < len(nums) and nums[l] == target:
