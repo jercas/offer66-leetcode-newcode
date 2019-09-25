@@ -17,5 +17,6 @@ def bin_search(data_list, val):
         else:                       # 如果val在中间数右边, 移动low下标            
             low = mid + 1    
     return # val不存在, 返回None
-ret = bin_search(list(range(1, 10)), 3)
-print(ret)
+
+if __name__ == '__main__':
+    print(bin_search(list(range(1, 10)), 3))

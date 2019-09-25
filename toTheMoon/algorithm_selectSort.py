@@ -17,7 +17,7 @@ def select_sort(list):
 		list[i] = tmp
 	return list
 
-
-list = [3, 4, 2, 8, 9, 5, 1]
-print("排序前序列 -> ", list)
-print("排序后序列 -> ", select_sort(list))
+if __name__ == '__main__':
+	array = [3, 4, 2, 8, 9, 5, 1]
+	print("排序前序列 -> ", array)
+	print("排序后序列 -> ", select_sort(array))
