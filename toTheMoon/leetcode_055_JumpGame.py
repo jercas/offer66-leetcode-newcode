@@ -19,29 +19,44 @@ Created on Fri Jun 21 17:54:22 2019
 		同时，这个位置将成为新的最左边的 GOOD 位置，一直重复到数组的开头，如果第一个坐标标记为 GOOD 意味着可以从第一个位置跳到最后的位置。
 """
 class Solution(object):
-	def canJump(self, nums):
-		"""
-		:type nums: List[int]
-		:rtype: bool
-		时间复杂度O(n)：84ms beaten 99.33%
-		空间复杂度O(n): 13.2MB beaten 48.48%
-		"""
-		length = len(nums)
-		if length == 0:
-			return False
-
-		lastPos = length - 1
-		for i in range(lastPos, -1, -1):
-			if nums[i] + i >= lastPos:
-				lastPos = i
-		return lastPos == 0
-
-
+    def canJump1(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        时间复杂度O(n)：84ms beaten 99.33%
+        空间复杂度O(n): 13.2MB beaten 48.48%
+        """
+        length = len(nums)
+        if length == 0:
+            return False
+        
+        lastPos = length - 1
+        for i in range(lastPos, -1, -1):
+            if nums[i] + i >= lastPos:
+                lastPos = i
+        return lastPos == 0
+    
+    
+    def canJump2(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        时间复杂度O(n)：80ms beaten 95.70%
+        空间复杂度O(n): 13.2MB beaten 46.28%
+        """
+        maxs=0
+        for i in range(len(nums)-1):
+            maxs = max(nums[i], maxs-1)
+            if maxs==0:
+                return False
+        return True
+    
+    
 if __name__ == '__main__':
 	Q = [[2,3,1,1,4], [3,2,1,0,4]]
 	A = [True, False]
 	solution = Solution()
 	for i in range(2):
-		if solution.canJump(Q[i]) == A[i]:
+		if solution.canJump1(Q[i]) == A[i] and solution.canJump2(Q[i]) == A[i]:
 			print("In list {0}, can jump to the end? -- {1}".format(Q[i], A[i]))
 	print('AC')

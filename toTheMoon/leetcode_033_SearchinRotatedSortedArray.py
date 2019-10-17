@@ -19,27 +19,7 @@ Created on Mon Apr 29 16:47:00 2019
 		2. 变形的二分查找法->寻找旋转点，因为数组为排序数组，故旋转点必为最小值，找到旋转点后再在两个分段的升序子集里采用标准二分查找寻找target即可。
 """
 class Solution:
-	def search1(self, nums: 'List[int]', target: int) -> int:
-		"""
-		:param nums:
-		:param target:
-		:return:
-		时间复杂度：O(n), 循环遍历一次，44ms beaten 96.80%
-		空间复杂度：O(1), 未使用额外空间，11.9MB beaten 25.92%
-		"""
-		#双向暴力搜索
-		n = len(nums)
-		if n == 0:
-			return -1
-		for i in range(n):
-			if target == nums[i]:
-				return i
-			elif target == nums[n-i-1]:
-				return n-i-1
-		return -1
-
-
-	def search2(self, nums: 'List[int]', target: int) -> int:
+	def search(self, nums, target):
 		"""
 		:param nums:
 		:param target:
@@ -87,10 +67,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-	Q1, Q2 = [4,5,6,7,0,1,2], [0, 3]
+	Q, T = [4,5,6,7,0,1,2], [0, 3]
 	A = [4, -1]
 	solution = Solution()
 	for i in range(2):
-		if solution.search1(Q1, Q2[i]) == A[i] and solution.search2(Q1, Q2[i]) == A[i]:
-			print("target {0} in list {1} -> pos: {2}".format(Q2[i], Q1, A[i]))
+		if solution.search(Q, T[i]) == A[i]:
+			print("target {0} in list {1} -> pos: {2}".format(T[i], Q, A[i]))
 			print("AC")

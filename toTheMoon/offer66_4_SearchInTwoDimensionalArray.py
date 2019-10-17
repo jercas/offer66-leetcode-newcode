@@ -13,11 +13,11 @@ Created on Fri Apr 26 10:47:52 2019
 class Solution:
 	# array 二维列表
 	def Find(self, target, array):
-		# write code here
 		if len(array[0]) == 0:
 			return False
 
 		n = len(array)
+      # 从右上角开始查找
 		row, col = 0, n - 1
 		while row < n and col >= 0:
 			if array[row][col] == target:
